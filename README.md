@@ -7,6 +7,8 @@ Instructions on running the 401k manager:
     server.py(python) : server to display and retrieve data
     frontpage.html(html and css) :  design of web page
     human_interest.js(JavaScript): core functionality, contains button logic, calculation logic, etc. 
+    chart.js
+    d3.v7.min.js
 
 3.Open your terminal and download flask:
 - Either set up a python environment 
