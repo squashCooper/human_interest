@@ -1,0 +1,122 @@
+[
+  {
+    "salary": 100000,
+    "contribution_percent": "",
+    "contribution_dollar_amount": 1000,
+    "number_of_paychecks": 26
+  },
+  {
+    "salary": 100000,
+    "contribution_percent": 4,
+    "contribution_dollar_amount": "",
+    "number_of_paychecks": ""
+  },
+  {
+    "salary": 100000,
+    "contribution_percent": 3,
+    "contribution_dollar_amount": "",
+    "number_of_paychecks": ""
+  },
+  {
+    "salary": 100000,
+    "contribution_percent": 3,
+    "contribution_dollar_amount": "",
+    "number_of_paychecks": ""
+  },
+  {
+    "salary": 100000,
+    "contribution_percent": "",
+    "contribution_dollar_amount": 1000,
+    "number_of_paychecks": 24
+  },
+  {
+    "salary": 100000,
+    "contribution_percent": 3,
+    "contribution_dollar_amount": "",
+    "number_of_paychecks": ""
+  },
+  {
+    "salary": 100000,
+    "contribution_percent": 3,
+    "contribution_dollar_amount": "",
+    "number_of_paychecks": ""
+  },
+  {
+    "salary": 80000,
+    "contribution_percent": 3,
+    "contribution_dollar_amount": "",
+    "number_of_paychecks": ""
+  },
+  {
+    "salary": 80000,
+    "contribution_percent": "",
+    "contribution_dollar_amount": 2000,
+    "number_of_paychecks": 12
+  },
+  {
+    "salary": 80000,
+    "contribution_percent": 3,
+    "contribution_dollar_amount": "",
+    "number_of_paychecks": ""
+  },
+  {
+    "salary": 74000,
+    "contribution_percent": 3,
+    "contribution_dollar_amount": "",
+    "number_of_paychecks": ""
+  },
+  {
+    "salary": 73000,
+    "contribution_percent": 3,
+    "contribution_dollar_amount": "",
+    "number_of_paychecks": ""
+  },
+  {
+    "salary": 67000,
+    "contribution_percent": 3,
+    "contribution_dollar_amount": "",
+    "number_of_paychecks": ""
+  },
+  {
+    "salary": 67000,
+    "contribution_percent": 3,
+    "contribution_dollar_amount": "",
+    "number_of_paychecks": ""
+  },
+  {
+    "salary": 65000,
+    "contribution_percent": 3,
+    "contribution_dollar_amount": "",
+    "number_of_paychecks": ""
+  },
+  {
+    "salary": 65000,
+    "contribution_percent": 3,
+    "contribution_dollar_amount": "",
+    "number_of_paychecks": ""
+  },
+  {
+    "salary": 60000,
+    "contribution_percent": 3,
+    "contribution_dollar_amount": "",
+    "number_of_paychecks": ""
+  },
+  {
+    "salary": 60000,
+    "contribution_percent": 3,
+    "contribution_dollar_amount": "",
+    "number_of_paychecks": ""
+  },
+  {
+    "salary": 60000,
+    "contribution_percent": 2,
+    "contribution_dollar_amount": "",
+    "number_of_paychecks": ""
+  },
+  {
+    "salary": 60000,
+    "contribution_percent": 1,
+    "contribution_dollar_amount": "",
+    "number_of_paychecks": ""
+  }
+]
