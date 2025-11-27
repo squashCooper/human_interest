@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Human Interest</title>
+  <style>
+    * { box-sizing: border-box; }
+    
+    html, body {
+      min-height: 100%;
+      background-color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 40px 20px;
+      color: #1e3a8a;
+    }
+
+    h1 {
+      color: #1e3a8a;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    h2 {
+      color: #1e3a8a;
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      font-weight: normal;
+    }
+
+    h3 {
+      color: #1e3a8a;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      font-weight: normal;
+    }
+
+    form {
+      max-width: none;
+      margin: 0;
+      padding: 30px;
+      display: flex;
+      gap: 40px;
+    }
+
+    .form-section {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .dashboard {
+      flex: 1;
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      min-height: 80vh;
+    }
+
+  
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #1e3a8a;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      width: 150px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+
+    .slider-section {
+      display: none;
+      margin: 25px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 100%;
+    }
+
+    #percent_slider {
+      width: 100%;
+      --thumbNumber: '0';
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+
+    #percent_slider:focus {
+      outline: none;
+    }
+
+    #percent_slider::-webkit-slider-runnable-track {
+      background: linear-gradient(45deg, #0d9488 0%, #14b8a6 100%);
+      height: 2px;
+    }
+
+    #percent_slider::-webkit-slider-thumb {
+      appearance: none;
+      -webkit-appearance: none;
+      border: 2px solid #0d9488;
+      border-radius: 50%;
+      height: 35px;
+      width: 35px;
+      background-color: #0d9488;
+      cursor: grab;
+      transition: border 1000ms ease;
+      position: relative;
+      bottom: 11px;
+    }
+
+    #percent_slider::-webkit-slider-thumb:active {
+      cursor: grabbing;
+    }
+
+    #percent_slider::-webkit-slider-thumb::before {
+      content: var(--thumbNumber, '0') '%';
+      position: absolute;
+      font-size: 9px;
+      color: white;
+      font-weight: bold;
+    }
+
+    #percent_slider::-moz-range-track {
+      background: linear-gradient(45deg, #0d9488 0%, #14b8a6 100%);
+      height: 2px;
+    }
+
+    #percent_slider::-moz-range-thumb {
+      border: 2px solid #0d9488;
+      border-radius: 50%;
+      height: 25px;
+      width: 25px;
+      background-color: #0d9488;
+      cursor: grab;
+      transition: border 1000ms ease;
+    }
+
+    #percent_slider::-moz-range-thumb:active {
+      cursor: grabbing;
+    }
+
+    .thumb-label {
+      position: absolute;
+      background: #0d9488;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: bold;
+      transform: translateX(-50%);
+      top: -35px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    #percent_slider:active + .thumb-label,
+    #percent_slider:focus + .thumb-label {
+      opacity: 1;
+    }
+
+    .dollar_amount,
+    .number_of_paychecks {
+      display: none;
+      margin-top: 10px;
+      padding: 8px;
+    }
+
+    .salary {
+      margin-top: 20px;
+      padding: 8px;
+      text-align: center;
+    }
+    button {
+      padding: 12px 24px;
+      margin: 8px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      min-width: 140px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    button:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    #fixed_amount {
+      background: #1e3a8a;
+      color: white;
+    }
+
+    #fixed_amount:hover {
+      background: #1e40af;
+    }
+
+    #percentage_amount {
+      background: #0d9488;
+      color: white;
+    }
+
+    #percentage_amount:hover {
+      background: #0f766e;
+    }
+
+    #submit_data {
+      background: #059669;
+      color: white;
+    }
+
+    #submit_data:hover {
+      background: #047857;
+    }
+
+    #view_data,
+    #download_data,
+    #refresh_dashboard {
+      padding: 10px 20px;
+      font-size: 14px;
+      min-width: 120px;
+    }
+
+    #view_data {
+      background: #6366f1;
+      color: white;
+    }
+
+    #view_data:hover {
+      background: #5855eb;
+    }
+
+
+    #refresh_dashboard {
+      background: #10b981;
+      color: white;
+    }
+
+    #refresh_dashboard:hover {
+      background: #059669;
+    }
+
+
+    .dashboard h3 {
+      color: #1e3a8a;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.4rem;
+    }
+
+    .chart-section {
+      margin-top: 20px;
+      padding: 15px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .chart-section h4 {
+      color: #1e3a8a;
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .chart-container {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hidden {
+      display: none;
+    }
+
+    .button-container {
+      margin-bottom: 40px;
+    }
+
+    .data_actions {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body onload="main()">
+  <form>
+    <div class="form-section">
+      <h1>Welcome to the Human Interest 401(k) manager</h1>
+      <h2>Please use the controls below to manage your 401(k) settings</h2>
+      <h3>Would you like a fixed dollar amount per paycheck or a percentage?</h3>
+
+      <div class="button-container">
+        <button type="button" id="fixed_amount">Fixed</button>
+        <button type="button" id="percentage_amount">Percentage</button>
+      </div>
+
+      <div class="slider-section" id="slider-section">
+        <label for="percent_slider">Contribution Percentage</label>
+        <div class="slider-container">
+          <input type="range" id="percent_slider" name="percent_slider" min="0" max="100" value="0" step="1">
+          <div class="thumb-label" id="percent_label">0%</div>
+        </div>
+      </div>
+
+      <div class="dollar_amount">
+        <label for="dollar_amount">Dollar Amount:</label>
+        <input type="text" id="dollar_amount" name="dollar_amount">
+      </div>
+
+      <div class="number_of_paychecks">
+        <label for="number_of_paychecks">Number of Paychecks:</label>
+        <input type="text" id="number_of_paychecks" name="number_of_paychecks">
+      </div>
+
+      <div class="salary">
+        <label for="salary">Current Salary</label>
+        <input type="text" id="salary" name="salary">
+      </div>
+
+      <div class="submit_button">
+        <button type="button" id="submit_data">Submit</button>
+      </div>
+
+      <div class="data_actions">
+        <button type="button" id="view_data" onclick="viewSavedData()">View Saved Data</button>
+        <button type="button" id="refresh_dashboard" onclick="updateDashboard()">Refresh Dashboard</button>
+      </div>
+    </div>
+
+    <div id="dashboard" class="dashboard">
+      <h3>401(k) Contribution Analytics</h3>
+
+      <div class="chart-section">
+        <h4>Total YTD Contributions Trend</h4>
+        <div class="chart-container">
+          <canvas id="lineChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <script src="d3.v7.min.js"></script>
+  <script src="chart.js"></script>
+  <script src="human_interest.js"></script>
+</body>
+</html>
